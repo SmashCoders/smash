@@ -1,18 +1,46 @@
 var app;
 
-app = angular.module('', ['ngRoute']);
+app = angular.module('smash', ['ngRoute']);
 
-app.controller('', function($scope) {
-  return console.log($scope);
+app.controller('mainController', function($scope, $http) {
+  var query;
+  $scope.$watch('characterInput', function() {
+    if ($scope.characterInput != null) {
+      return query($scope.characterInput);
+    }
+  });
+  return query = _.debounce(function(input) {
+    return $http({
+      method: 'GET',
+      url: "http://gateway.marvel.com/v1/public/characters?nameStartsWith=" + input + "&apikey=51d91608bf59d25ec72796cf38c95670"
+    }).success(function(data) {
+      return $scope.characters = data.data.results;
+    });
+  }, 100);
 });
 
 app.config([
   '$routeProvider', function($routeProvider) {
     return $routeProvider.when('/', {
       templateUrl: 'app/views/main.html',
-      controller: ''
+      controller: 'mainController'
+    }).when('/character/:id', {
+      templateUrl: 'app/views/character.html',
+      controller: 'characterController'
     }).otherwise({
       redirectTo: '/'
     });
   }
 ]);
+
+var app;
+
+app = angular.module('smash').controller('characterController', function($scope, $http, $route, $location) {
+  $scope.id = $route.current.params.id;
+  return $http({
+    method: 'GET',
+    url: "http://gateway.marvel.com/v1/public/characters/" + $scope.id + "?apikey=51d91608bf59d25ec72796cf38c95670"
+  }).success(function(data) {
+    return $scope.character = data.data.results[0];
+  });
+});

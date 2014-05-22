@@ -1,0 +1,42 @@
+<hr style='border-color:#333;height:1px;'>
+<div class='row'>
+  <h3 style='text-align:center'> {{character.name }} </h3>
+  <img src='{{character.thumbnail.path}}.{{character.thumbnail.extension}}' style='height:350px;display:block; margin:auto;' />
+  {{character.description}}
+  <hr style='border-color:#333;height:1px;'>
+
+  <h4>Comics</h4>
+  <ul ng-repeat='comic in character.comics.items'>
+    <li>
+      <a href='{{comic.resourceURI}}'>{{comic.name}}</a>
+    </li>
+  </ul>
+
+  <h4>Stories</h4>
+  <ul ng-repeat='story in character.stories.items'>
+    <li>
+      <a href='{{story.resourceURI}}'>{{story.name}}</a>
+    </li>
+  </ul>
+
+  <h4>Series</h4>
+  <ul ng-repeat='series in character.series.items'>
+    <li>
+      <a href='{{series.resourceURI}}'>{{series.name}}</a>
+    </li>
+  </ul>
+
+  <h4>Events</h4>
+  <ul ng-repeat='event in character.events.items'>
+    <li>
+      <a href='{{event.resourceURI}}'>{{event.name}}</a>
+    </li>
+  </ul>
+
+  <h4>URLs</h4>
+  <ul ng-repeat='url in character.urls'>
+    <li>
+      <a href='{{url.url}}'>{{url.type}}</a>
+    </li>
+  </ul>
+</div>

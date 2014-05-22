@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css">
   </head>
-  <body data-ng-app="">
-    <div data-ng-view>
+  <body data-ng-app="smash" data-ng-controller="mainController" style='background-color:#ddd'>
+    <div class='container' style='padding:10px;'>
+      <h3 style='text-align:center'>
+        SMASH
+      </h3>
+      <div data-ng-view> </div>
+      <hr style='border-color:#333;height:1px;'>
+      <a href="http://marvel.com">Data provided by Marvel. © 2014 MARVEL</a>
     </div>
-
     <!-- load scripts -->
     <script src="lib/lodash.compat.min.js"></script>
     <script src="lib/angular.min.js"></script>
