@@ -1,0 +1,19 @@
+{
+  "name": "",
+  "author": "Mike Groseclose",
+  "email": "mike.groseclose@gmail.com",
+  "description": "",
+  "version": "0.1.0",
+  "private": true,
+  "main": "index.js",
+  "devDependencies": {
+    "gulp": "~3.5.2",
+    "coffee-script": "~1.7.1",
+    "gulp-coffee":"~1.4.1",
+    "gulp-util": "~2.2.14",
+    "gulp-plumber": "~0.5.6",
+    "ecstatic": "~0.4.13",
+    "gulp-concat": "*",
+    "gulp-util":"*"
+  }
+}
