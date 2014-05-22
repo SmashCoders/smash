@@ -21,7 +21,13 @@ app.config ['$routeProvider', ($routeProvider) ->
       templateUrl: 'app/views/character.html'
       controller: 'characterController'
     ).
+    when('/comic/:id',
+      templateUrl: 'app/views/comic.html'
+      controller: 'comicController'
+    ).
     otherwise(
       redirectTo: '/'
     )
 ]
+
+

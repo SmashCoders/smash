@@ -6,4 +6,7 @@ app = angular.module('smash')
       .success (data) ->
         $scope.character = data.data.results[0]
 
+    $scope.idFromURI = (uri) ->
+      slashInd = uri.lastIndexOf('/')
+      uri.substring(slashInd+1)
 

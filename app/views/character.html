@@ -8,7 +8,7 @@
   <h4>Comics</h4>
   <ul ng-repeat='comic in character.comics.items'>
     <li>
-      <a href='{{comic.resourceURI}}'>{{comic.name}}</a>
+      <a href='#/comic/{{idFromURI(comic.resourceURI)}}'>{{comic.name}}</a>
     </li>
   </ul>
 
