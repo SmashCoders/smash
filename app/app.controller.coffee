@@ -1,4 +1,4 @@
-app = angular.module('smash', ['ngRoute', 'smashAnimations'])
+app = angular.module('smash', ['ngRoute', 'ngAnimate'])
 
 app.controller 'mainController', ($scope, $http) ->
   $scope.$watch 'characterInput', ->
