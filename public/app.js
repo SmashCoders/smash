@@ -1,6 +1,6 @@
 var app;
 
-app = angular.module('smash', ['ngRoute', 'smashAnimations']);
+app = angular.module('smash', ['ngRoute', 'ngAnimate']);
 
 app.controller('mainController', function($scope, $http) {
   var query;
