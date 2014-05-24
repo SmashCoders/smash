@@ -14,15 +14,15 @@ app.controller 'mainController', ($scope, $http) ->
 app.config ['$routeProvider', ($routeProvider) ->
   $routeProvider.
     when('/',
-      templateUrl: 'app/views/main.html'
+      templateUrl: 'public/templates/main.html'
       controller: 'mainController'
     ).
     when('/character/:id',
-      templateUrl: 'app/views/character.html'
+      templateUrl: 'public/templates/character.html'
       controller: 'characterController'
     ).
     when('/comic/:id',
-      templateUrl: 'app/views/comic.html'
+      templateUrl: 'public/templates/comic.html'
       controller: 'comicController'
     ).
     otherwise(
