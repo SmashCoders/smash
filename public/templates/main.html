@@ -1,12 +1,19 @@
 
-<div>
-  <input type="text" ng-model="characterInput" style="display: block; margin: auto; width: 300px;"/>
-  <hr style="border-color: #333; height: 1px;"/>
-  <div class="row">
-    <div ng-repeat="character in characters">
-      <div class="col-md-4">
-        <div style="position: relative; height: 350px; width: 350px; overflow: hidden; border: 1px solid; background: black;"><a href="#/character/{{character.id}}"><img src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}" style="height: 350px; display: block; margin: auto;"/>
-            <div style="position: absolute; bottom: 10px; left: 0; background-color: white; border: 1px solid; padding: 3px;">{{character.name }}</div></a></div>
+<div class="input-container">
+  <input type="text" ng-model="characterInput"/>
+</div>
+<div class="row">
+  <div ng-repeat="character in characters" class="col-md-4">
+    <div class="flip">
+      <div ng-class="{flipped: hover}" ng-click="hover=!hover" class="card">
+        <div class="face front">
+          <div style="height:350px" class="card-inner"><img src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}" style="height: auto; overflow: hidden;width:100%; margin: auto;"/>
+            <div class="card-name">{{character.name }}</div>
+          </div>
+        </div>
+        <div class="face back">
+          <p>| test</p>
+        </div>
       </div>
     </div>
   </div>
