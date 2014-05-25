@@ -1,4 +1,5 @@
 body {
+  font-family: 'Chewy', cursive;
   background: #a90329;
   /* Old browsers */
   background: -moz-linear-gradient(-45deg, #a90329 0%, #8f0222 44%, #6d0019 100%);
@@ -16,6 +17,16 @@ body {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019',GradientType=1 );
   /* IE6-9 fallback on horizontal gradient */
   color: #000; }
+
+#logo {
+  position: fixed;
+  z-index: -1;
+  top: 0px;
+  left: 0px;
+  font-size: 25em;
+  font-size: 25vw;
+  width: 100%;
+  color: #fff; }
 
 #github_fork_banner {
   position: fixed;
