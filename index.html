@@ -1,18 +1,36 @@
 <!DOCTYPE html>
 <html>
+  <title>SMASH! View your favorite comic book characters. </title>
   <head>
-    <link rel="stylesheet" type="text/css" href="public/css/style.css">
     <link rel="stylesheet" type="text/css" href="lib/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="public/css/style.css">
   </head>
-  <body data-ng-app="smash" data-ng-controller="mainController" style='background-color:#ddd'>
-    <div class='container' style='padding:10px;'>
-      <h3 style='text-align:center'>
-        SMASH
-      </h3>
+  <body data-ng-app="smash" data-ng-controller="mainController">
+    <div class='container-fluid'>
       <div data-ng-view> </div>
-      <hr style='border-color:#333;height:1px;'>
-      <a href="http://marvel.com">Data provided by Marvel. © 2014 MARVEL</a>
     </div>
+    <div style=height:40px;'></div>
+
+    <div class='footer1'>
+      <div id='twitter'>
+        <a href="https://twitter.com/bit_militia" class="twitter-follow-button" data-show-count="false">Follow @bit_militia</a>
+        <a href="https://twitter.com/chrisfishwood" class="twitter-follow-button" data-show-count="false">@chrisfishwood</a>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://smashcoders.github.io/smash/" data-text="Check out this AngularJS site for viewing your favorite comic book characters" data-via="bit_militia" data-hashtags="angularjs">Tweet</a>
+      </div>
+    </div>
+
+    <div class='footer2'>
+      <a href="http://marvel.com">
+        Data provided by Marvel. © 2014 MARVEL
+      </a>
+    </div>
+
+    <a id="github_fork_banner" href="https://github.com/smashcoders/smash">
+      <img src="public/images/github_fork_banner.png" alt="Fork me on GitHub">
+    </a>
+
+    <!-- twitter button code -->
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
     <!-- load scripts -->
     <script src="lib/lodash.compat.min.js"></script>

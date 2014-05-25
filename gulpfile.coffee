@@ -19,11 +19,13 @@ gulp.task 'scripts', ->
 
 gulp.task 'templates', () ->
   gulp.src './app/templates/*.jade'
+    .pipe plumber()
     .pipe jade pretty: true
     .pipe gulp.dest 'public/templates/'
 
 gulp.task 'sass', () ->
   gulp.src('app/scss/*.scss')
+    .pipe plumber()
     .pipe sass()
     .pipe concat 'style.css'
     .pipe gulp.dest 'public/css/'

@@ -1,0 +1,194 @@
+@mixin perspective($amount) {
+  -webkit-perspective: $amount;
+  -ms-perspective: $amount;
+  -moz-perspective: $amount;
+  -o-perspective: $amount;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin rotate-y($amount) {
+  transform:rotatey($amount);
+  -ms-transform:rotatey($amount); /* IE 9 */
+  -moz-transform:rotatey($amount); /* Firefox */
+  -webkit-transform:rotatey($amount); /* Safari and Chrome */
+  -o-transform:rotatey($amount); /* Opera */
+}
+
+@mixin hide-backface {
+  backface-visibility: hidden;  /* W3C */
+  -webkit-backface-visibility: hidden; /* Safari & Chrome */
+  -moz-backface-visibility: hidden; /* Firefox */
+  -ms-backface-visibility: hidden; /* Internet Explorer */
+  -o-backface-visibility: hidden; /* Opera */
+}
+
+@mixin transform($type) {
+  -webkit-transform-style: $type;
+  -moz-transform-style: $type;
+  -ms-transform-style: $type;
+  -o-transform-style: $type;
+  transform-style: $type;
+}
+
+@mixin transition($amount) {
+  -webkit-transition: $amount;
+  -moz-transition: $amount;
+  -ms-transition: $amount;
+  -o-transition: $amount;
+  transition: $amount;
+}
+
+@mixin card-background() {
+  background: #ffffee;
+  background: -moz-linear-gradient(-45deg,  #ffffee 0%, #cccc99 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#ffffee), color-stop(100%,#cccc99)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(-45deg,  #ffffee 0%,#cccc99 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(-45deg,  #ffffee 0%,#cccc99 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(-45deg,  #ffffee 0%,#cccc99 100%); /* IE10+ */
+  background: linear-gradient(135deg,  #ffffee 0%,#cccc99 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffee', endColorstr='#cccc99',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+@mixin body-background() {
+  background: #a90329; /* Old browsers */
+  background: -moz-linear-gradient(-45deg,  #a90329 0%, #8f0222 44%, #6d0019 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#a90329), color-stop(44%,#8f0222), color-stop(100%,#6d0019)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(-45deg,  #a90329 0%,#8f0222 44%,#6d0019 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(-45deg,  #a90329 0%,#8f0222 44%,#6d0019 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(-45deg,  #a90329 0%,#8f0222 44%,#6d0019 100%); /* IE10+ */
+  background: linear-gradient(135deg,  #a90329 0%,#8f0222 44%,#6d0019 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+@mixin shadow() {
+  -webkit-box-shadow: 7px 7px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow:    7px 7px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow:         7px 7px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+body {
+  @include body-background();
+  color: #000;
+}
+
+#github_fork_banner {
+  position: fixed;
+  top: 0;
+  right: 0;
+  border: 0;
+}
+
+#twitter {
+  float:right;
+}
+
+.input-container {
+  top: 10px;
+  z-index: 1000;
+  width: 100%;
+  position: fixed;
+}
+
+input {
+  position: relative;
+  display: block;
+  margin: auto;
+  width: 300px;
+  border: 3px solid #000;
+  @include shadow();
+}
+
+.footer1 {
+  z-index: 1000;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  height: 40px;
+  background-color: #000;
+  text-align: center;
+  border: 1px solid #333;
+}
+
+.footer2 {
+  z-index: 1000;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  height: 20px;
+  text-align: center;
+}
+
+.container-fluid {
+  margin-top: 50px;
+}
+
+.col-md-4 {
+  padding: 0
+}
+
+.card-inner {
+  @include border-radius(10px);
+  border: 3px solid #000;
+  position: relative;
+  overflow: hidden;
+  background: #000;
+}
+
+.card-name {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  background-color: white;
+  border: 3px solid #000;
+  padding: 3px;
+}
+
+.flip {
+  @include perspective(800);
+  height: 350px;
+  position: relative;
+}
+
+.flip .card.flipped {
+  z-index: 1000;
+  @include rotate-y(-180deg);
+}
+
+.flip .card {
+  width: 100%;
+  height: 100%;
+  @include transform(preserve-3d);
+  @include transition(0.5s);
+}
+
+.flip .card .face {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 2;
+  @include hide-backface();
+}
+
+.flip .card .front {
+  @include shadow();
+  @include border-radius(10px);
+  position: absolute;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.flip .card .back {
+  @include shadow();
+  border-radius: 10px;
+  border: 3px solid #000;
+  @include card-background();
+  cursor: pointer;
+  @include rotate-y(-180deg);
+}
