@@ -72,8 +72,20 @@
 }
 
 body {
+  font-family: 'Chewy', cursive;
   @include body-background();
   color: #000;
+}
+
+#logo {
+  position: fixed;
+  z-index:-1;
+  top: 0px;
+  left: 0px;
+  font-size: 25em;
+  font-size:25vw;
+  width:100%;
+  color: #fff;
 }
 
 #github_fork_banner {
