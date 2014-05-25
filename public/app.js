@@ -1,6 +1,6 @@
 var app;
 
-app = angular.module('smash', ['ngRoute', 'ngAnimate']);
+app = angular.module('smash', ['ngRoute']);
 
 app.constant('API_KEY', '51d91608bf59d25ec72796cf38c95670');
 
@@ -38,32 +38,3 @@ app.config([
     });
   }
 ]);
-
-var app;
-
-app = angular.module('smash').controller('characterController', function($scope, $http, $route, $location) {
-  $scope.id = $route.current.params.id;
-  $http({
-    method: 'GET',
-    url: "http://gateway.marvel.com/v1/public/characters/" + $scope.id + "?apikey="
-  }).success(function(data) {
-    return $scope.character = data.data.results[0];
-  });
-  return $scope.idFromURI = function(uri) {
-    var slashInd;
-    slashInd = uri.lastIndexOf('/');
-    return uri.substring(slashInd + 1);
-  };
-});
-
-var app;
-
-app = angular.module('smash').controller('comicController', function($scope, $http, $route, $location) {
-  $scope.id = $route.current.params.id;
-  return $http({
-    method: 'GET',
-    url: "http://gateway.marvel.com/v1/public/comics/" + $scope.id + "?apikey="
-  }).success(function(data) {
-    return $scope.comic = data.data.results[0];
-  });
-});

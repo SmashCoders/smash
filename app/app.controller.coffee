@@ -1,4 +1,4 @@
-app = angular.module('smash', ['ngRoute', 'ngAnimate'])
+app = angular.module('smash', ['ngRoute'])
 
 app.constant 'API_KEY', '51d91608bf59d25ec72796cf38c95670'
 
