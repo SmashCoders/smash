@@ -1,6 +1,8 @@
 app = angular.module('smash', ['ngRoute', 'ngAnimate'])
 
 app.controller 'mainController', ($scope, $http) ->
+  $scope.characterInput = 'hu'
+
   $scope.$watch 'characterInput', ->
     if $scope.characterInput?
       query $scope.characterInput
@@ -29,5 +31,3 @@ app.config ['$routeProvider', ($routeProvider) ->
       redirectTo: '/'
     )
 ]
-
-
