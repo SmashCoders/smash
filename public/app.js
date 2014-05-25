@@ -4,6 +4,7 @@ app = angular.module('smash', ['ngRoute', 'ngAnimate']);
 
 app.controller('mainController', function($scope, $http) {
   var query;
+  $scope.characterInput = 'hu';
   $scope.$watch('characterInput', function() {
     if ($scope.characterInput != null) {
       return query($scope.characterInput);
