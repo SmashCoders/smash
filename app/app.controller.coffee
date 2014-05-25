@@ -1,6 +1,8 @@
 app = angular.module('smash', ['ngRoute', 'ngAnimate'])
 
-app.controller 'mainController', ($scope, $http) ->
+app.constant 'API_KEY', '51d91608bf59d25ec72796cf38c95670'
+
+app.controller 'mainController', ($scope, $http, API_KEY) ->
   $scope.characterInput = 'hu'
 
   $scope.$watch 'characterInput', ->
@@ -8,7 +10,7 @@ app.controller 'mainController', ($scope, $http) ->
       query $scope.characterInput
 
   query = _.debounce (input) ->
-    $http {method: 'GET', url: "http://gateway.marvel.com/v1/public/characters?nameStartsWith=#{input}&apikey=51d91608bf59d25ec72796cf38c95670"}
+    $http {method: 'GET', url: "http://gateway.marvel.com/v1/public/characters?nameStartsWith=#{input}&apikey=#{API_KEY}"}
       .success (data) ->
         $scope.characters = data.data.results
   , 100

@@ -2,7 +2,9 @@ var app;
 
 app = angular.module('smash', ['ngRoute', 'ngAnimate']);
 
-app.controller('mainController', function($scope, $http) {
+app.constant('API_KEY', '51d91608bf59d25ec72796cf38c95670');
+
+app.controller('mainController', function($scope, $http, API_KEY) {
   var query;
   $scope.characterInput = 'hu';
   $scope.$watch('characterInput', function() {
@@ -13,7 +15,7 @@ app.controller('mainController', function($scope, $http) {
   return query = _.debounce(function(input) {
     return $http({
       method: 'GET',
-      url: "http://gateway.marvel.com/v1/public/characters?nameStartsWith=" + input + "&apikey=51d91608bf59d25ec72796cf38c95670"
+      url: "http://gateway.marvel.com/v1/public/characters?nameStartsWith=" + input + "&apikey=" + API_KEY
     }).success(function(data) {
       return $scope.characters = data.data.results;
     });
@@ -43,7 +45,7 @@ app = angular.module('smash').controller('characterController', function($scope,
   $scope.id = $route.current.params.id;
   $http({
     method: 'GET',
-    url: "http://gateway.marvel.com/v1/public/characters/" + $scope.id + "?apikey=51d91608bf59d25ec72796cf38c95670"
+    url: "http://gateway.marvel.com/v1/public/characters/" + $scope.id + "?apikey="
   }).success(function(data) {
     return $scope.character = data.data.results[0];
   });
@@ -60,7 +62,7 @@ app = angular.module('smash').controller('comicController', function($scope, $ht
   $scope.id = $route.current.params.id;
   return $http({
     method: 'GET',
-    url: "http://gateway.marvel.com/v1/public/comics/" + $scope.id + "?apikey=51d91608bf59d25ec72796cf38c95670"
+    url: "http://gateway.marvel.com/v1/public/comics/" + $scope.id + "?apikey="
   }).success(function(data) {
     return $scope.comic = data.data.results[0];
   });
