@@ -158,26 +158,12 @@ input {
   cursor: pointer; }
 
 .flip .card .back {
+  /*overflow-y: scroll;*/
   -webkit-box-shadow: 7px 7px 5px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 7px 7px 5px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 7px 7px 5px 0px rgba(0, 0, 0, 0.75);
   border-radius: 10px;
   border: 3px solid #000;
-  background: #ffffee;
-  background: -moz-linear-gradient(-45deg, #ffffee 0%, #cccc99 100%);
-  /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #ffffee), color-stop(100%, #cccc99));
-  /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(-45deg, #ffffee 0%, #cccc99 100%);
-  /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(-45deg, #ffffee 0%, #cccc99 100%);
-  /* Opera 11.10+ */
-  background: -ms-linear-gradient(-45deg, #ffffee 0%, #cccc99 100%);
-  /* IE10+ */
-  background: linear-gradient(135deg, #ffffee 0%, #cccc99 100%);
-  /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffee', endColorstr='#cccc99',GradientType=1 );
-  /* IE6-9 fallback on horizontal gradient */
   cursor: pointer;
   transform: rotatey(-180deg);
   -ms-transform: rotatey(-180deg);
@@ -188,3 +174,29 @@ input {
   /* Safari and Chrome */
   -o-transform: rotatey(-180deg);
   /* Opera */ }
+  .flip .card .back a {
+    text-align: center;
+    display: block; }
+  .flip .card .back .thumbnail {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    margin: auto; }
+
+.backface {
+  padding: 25px;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  background: rgba(0, 0, 0, 0.25); }
+
+.summary {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: white; }
+
+hr {
+  margin: 5px;
+  margin-top: 10px; }
